@@ -1,0 +1,89 @@
+
+/* =========================================
+   ANIMACIONES ADICIONALES
+========================================= */
+
+/* Corazones flotantes */
+
+.corazon-flotante {
+    position: fixed;
+    bottom: -30px;
+    color: #d97999;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.7;
+
+    animation: flotar linear forwards;
+}
+
+@keyframes flotar {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* Corazones al hacer clic */
+
+.corazon-clic {
+    position: fixed;
+    color: #d97999;
+    font-size: 25px;
+    pointer-events: none;
+    z-index: 2000;
+
+    animation: explosion 1s ease forwards;
+}
+
+@keyframes explosion {
+
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-70px) scale(1.5);
+    }
+
+}
+
+
+/* Aparicion de secciones */
+
+.aparecer-seccion {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.aparecer-seccion.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Accesibilidad: reducir movimiento */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
